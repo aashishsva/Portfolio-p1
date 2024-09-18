@@ -7,15 +7,11 @@
 }
 
 body{
-    max-width: 1920px;
+    max-width: 2560px;
     font-family: 'Gudea', serif;
     background: rgb(19, 19, 19);
 }
-img{
-    width: 400px;
-    height: auto;
-    object-fit: cover;
-}
+
 a{
     color: #fff;
     text-decoration: none;
@@ -45,9 +41,12 @@ a{
     color: #d82534;
     transition: color 0.3s ease;
 }
+.menu-bar{
+    display: none;
+}
 
 .hero-section{
-    height: 100vh;
+    min-height: 100vh;
     max-width: 100%;
     background: rgb(8,8,8);
     background: linear-gradient(5deg, rgb(19, 19, 19) 20%, rgba(65,75,77,1) 100%);
@@ -56,6 +55,12 @@ a{
     align-items: center;
     padding-bottom: 50px;
     padding-top: 100px;
+    
+}
+.left img{
+    width: 400px;
+    height: auto;
+    object-fit: cover;
 }
 
 .hero-section .right{
@@ -95,18 +100,10 @@ a{
     cursor: pointer;
 }
 
+
 .second-section {
-    height: 100vh;
-    padding: 50px;
-    padding-top: 80px;
-    margin: 100px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    margin-bottom: 100px; /* Added margin to create space */
+    min-height: 500px; /* Set a minimum height for the section */
+    margin-bottom: 50px; /* Add some space between sections */
 }
 
 .language-card {
@@ -165,14 +162,15 @@ a{
 
 
 .experience{    
-    width: 50%;
+    width: 100%;
     padding: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 100px;
     text-align: center;
-    
+    /* margin-bottom: auto; */
+    color:white;
 }
 
 .experience .year h2{
@@ -203,13 +201,14 @@ a{
 }
 
 .feature-section {
-    min-height: 100vh; /* Keep this for consistency */
+    min-height: 100%; /* Keep this for consistency */
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
-    padding: 50px 200px; /* Make sure there's enough padding */
+    padding: 50px;
     gap: 50px;
 }
 
@@ -265,4 +264,79 @@ footer{
     color: #e01126;
     transition: color 0.3s ease;
     cursor: pointer;
+}
+
+@media screen and (max-width:1024px) {
+    .feature-section .feature-container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto;
+        gap: 50px;
+        img{
+            max-width: 100%;
+        }
+    }    
+}
+@media screen and (max-width:768px) {
+    .language-card{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-section{
+        gap: 10px;
+    }
+    .left{
+        padding: 0;
+        img{
+            width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width:500px) {
+    
+    .menu-bar{
+        display: initial;
+        color: white;
+    }
+    .navbar ul{
+        display: none;
+    }
+    .hero-section{
+        flex-direction: column;
+    }
+    .left {
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 100%;
+        }
+        
+    }
+    .hero-section .right{
+        width: 100%;
+        color: #fff;
+        padding: 20px;
+    }
+    .experience{
+        flex-direction: column;
+    }
+
+    .feature-section .feature-container{
+        /* max-width: 500px; */
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: auto;
+        gap: 50px;
+        padding: 0 0;
+        img{
+            max-width: 100%;
+        }
+    }    
+
+    footer{
+        display: flex;
+        flex-direction: column;
+    }
 }
